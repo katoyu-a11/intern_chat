@@ -1,0 +1,24 @@
+{% extends 'myapp/base.html' %}
+
+{% block header %}
+<center>
+<p>友達</p>
+</center>
+{% endblock %}
+{% block content %}
+<body class = "container">
+    {% for item in data %}
+    <div class = "DivLink">
+    {% for photo in image %}
+    {% if photo.image_user == item %}
+    
+    <img src = {{photo.image.url}} alt ="サンプル" width = "96" height = "65">
+    {% endif %}
+    {% endfor %}
+    <a href="{% url 'talk_room' login_user.id item.id %}" class="">{{item.username}}</a>>
+    <HR>
+    <br><br><br>
+    </div>
+    {% endfor %}
+</body>
+{% endblock %}
